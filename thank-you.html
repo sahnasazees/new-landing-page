@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | Nextal Media</title>
+  <meta name="description" content="Thank you for booking your Growth Strategy Call with Nextal Media.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="thankyou-body">
+
+  <main class="thankyou-note-wrapper">
+    <!-- Brand Logo -->
+    <div class="thankyou-logo-wrap">
+      <a href="index.html" aria-label="Nextal Media Home">
+        <img src="images/logo.png" alt="Nextal Media" class="nextal-logo-img thankyou-logo">
+      </a>
+    </div>
+
+    <!-- Small Thank You Note Card -->
+    <div class="thankyou-note-card">
+      <!-- Animated Check Icon -->
+      <div class="thankyou-note-icon">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+
+      <p class="thankyou-note-eyebrow">REQUEST RECEIVED</p>
+
+      <h1 class="thankyou-note-title">
+        Thank You, <span id="thankYouUserName" class="highlight-brand">Friend</span>! 🎉
+      </h1>
+
+      <p class="thankyou-note-desc">
+        Your Growth Strategy Call request has been submitted successfully. Our team is reviewing your profile and will
+        connect with you shortly on WhatsApp to confirm your schedule.
+      </p>
+
+      <div class="thankyou-note-actions">
+        <a href="index.html" class="cta-button thankyou-note-back-btn">
+          <span class="cta-button-main">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span>Back to Home</span>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Small Footer -->
+    <p class="thankyou-note-footer">
+      © 2026 Nextal Media • Creative People, Creative Brands
+    </p>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const nameEl = document.getElementById('thankYouUserName');
+      if (!nameEl) return;
+
+      const urlParams = new URLSearchParams(window.location.search);
+      let leadName = urlParams.get('name');
+
+      if (!leadName) {
+        try {
+          leadName = sessionStorage.getItem('bookedLeadFirstName') || sessionStorage.getItem('bookedLeadName');
+        } catch (e) { }
+      }
+
+      if (leadName) {
+        const cleanName = leadName.trim().split(' ')[0];
+        if (cleanName) {
+          nameEl.textContent = cleanName;
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
